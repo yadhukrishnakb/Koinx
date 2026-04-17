@@ -15,6 +15,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
   const [viewAll, setViewAll] = useState(false)
+  const [showTooltip, setShowTooltip] = useState(false)
 
   useEffect(() => {
     getData()
@@ -113,7 +114,7 @@ const Home = () => {
 
   const savedAmount = preTotal - postTotal
 
-  const visibleRows = viewAll ? holdings : holdings.slice(0, 5)
+  const visibleRows = viewAll ? holdings : holdings.slice(0, 4)
 
   return (
     <div className="home-bg-container">
@@ -122,7 +123,17 @@ const Home = () => {
       <div className="content-container">
         <div className="header-container">
           <h1 className="heading">Tax Harvesting</h1>
-          <p className="guide-text">How it works?</p>
+          <div className="guide-text-container"
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
+          >
+            <p className="guide-text">How it works?</p>
+            {showTooltip && (
+              <div className="tooltip">
+                Learn about tax harvesting and how to optimize your capital gains
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="important-notes-container">
@@ -293,10 +304,10 @@ const Home = () => {
             </div>
           ))}
 
-          {holdings.length > 5 && (
+          {holdings.length > 4 && (
             <button
               type="button"
-              className="important-notes-toggle"
+              className="view-all-button"
               onClick={() => setViewAll(!viewAll)}
             >
               {viewAll ? "View Less" : "View All"}

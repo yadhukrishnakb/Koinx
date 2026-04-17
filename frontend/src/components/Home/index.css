@@ -30,6 +30,48 @@
     font-weight: 400;
     margin: 0px;
 }
+
+.guide-text-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: black;
+
+    padding: 1px 3px;      /* smaller box */
+    width: fit-content;    /* box fits text tightly */
+
+    border-radius: 2px;
+
+    font-size: 11px;       /* keep text size same */
+    font-weight: 500;
+    line-height: 1.2;
+    font-family: "Roboto";
+
+    white-space: nowrap;
+    z-index: 1000;
+
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 4px solid white;
+}
 .important-notes-container{
     border: 1px solid #4A78FF;
     border-radius: 10px;
@@ -212,6 +254,7 @@
   overflow: hidden;
   font-family: "Roboto", sans-serif;
   margin-top: 24px;
+  padding-bottom: 20px;
 }
 
 .holdings-title {
@@ -319,4 +362,27 @@ input[type="checkbox"] {
   .holdings-card {
     max-width: none;
   }
+}
+
+.view-all-button {
+  background: transparent;
+  border: none;
+  color: #4A78FF;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  margin-top: 12px;
+  margin-left: 20px;
+}
+
+.view-all-button:hover {
+  opacity: 0.8;
+}
+
+.view-all-button:active {
+  opacity: 0.6;
 }
