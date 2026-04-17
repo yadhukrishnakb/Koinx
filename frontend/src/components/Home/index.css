@@ -152,6 +152,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+.tax-card.after-harvesting-card {
+  background: #3C9AFF;
+}
+
 .cards-container .tax-card {
   flex: 1;
   max-width: none;
