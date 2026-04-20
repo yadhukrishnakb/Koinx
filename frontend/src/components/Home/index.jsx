@@ -23,7 +23,7 @@ const Home = () => {
 
   const getData = async () => {
     try {
-      const holdingsResponse = await fetch("http://localhost:5000/api/holdings")
+      const holdingsResponse = await fetch("https://koinx-1-90cf.onrender.com/api/holdings")
       const holdingsResult = await holdingsResponse.json()
 
       const updatedData = holdingsResult.map((each, index) => ({
@@ -32,7 +32,7 @@ const Home = () => {
       }))
 
       const gainsResponse = await fetch(
-        "http://localhost:5000/api/capital-gains"
+        "https://koinx-1-90cf.onrender.com/api/capital-gains"
       )
       const gainsResult = await gainsResponse.json()
 
